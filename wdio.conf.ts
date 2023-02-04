@@ -1,4 +1,5 @@
-import type { Options } from '@wdio/types'
+import type { Options } from '@wdio/types';
+import { join } from 'path';
 
 export const config: Options.Testrunner = {
 
@@ -41,14 +42,14 @@ export const config: Options.Testrunner = {
     // https://saucelabs.com/platform/platform-configurator
 
     capabilities: [{
-
-        // "appium:noReset": false,
-        // "appium:autoGrantPermissions": true,
         platformName: "Android",
         "appium:deviceName": "Android_33x86",
+        "appium:platformVersion": "13",
         "appium:automationName": "UiAutomator2",
-        "appium:app": "D:/projects/appium_typescript/Wikipedia_2.7.50426.apk",
+        "appium:app": join(process.cwd(), "./Wikipedia_2.7.50426.apk"),
         "appium:appWaitActivity": "org.wikipedia.onboarding.InitialOnboardingActivity",
+        // "appium:noReset": false,
+        // "appium:autoGrantPermissions": true,
     }],
     //
     // ===================
@@ -99,10 +100,14 @@ export const config: Options.Testrunner = {
     // commands. Instead, they hook themselves up into the test process.
     services: [
         ['appium', {
-            command: 'appium'
+            command: 'appium',
         }]
     ],
 
+    // onPrepare: function (config, capabilities) {
+    //     global.driver = browser;
+
+    // },
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -124,10 +129,6 @@ export const config: Options.Testrunner = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec'],
-
-
-
-    //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
