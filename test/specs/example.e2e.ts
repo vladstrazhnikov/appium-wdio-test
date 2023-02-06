@@ -1,20 +1,20 @@
 import { ExplorePage } from '../pageobjects/explore.page.js';
-import { OnBoarding } from '../pageobjects/on-boarding.page.js';
+import { OnBoardingPage } from '../pageobjects/on-boarding.page.js';
 import { NavigationPage } from '../pageobjects/navigation.page.js';
 import { Settings } from '../pageobjects/settings.page.js';
 import { ArticlePage } from '../pageobjects/article.page.js';
 import { SavedPage } from '../pageobjects/saved.page.js';
 
-describe('Explore', () => {
+describe('Explore', async () => {
     const explorePage = new ExplorePage();
-    const onBoarding = new OnBoarding();
+    const onBoardingPage = new OnBoardingPage();
     const navigationPage = new NavigationPage();
     const settingsPage = new Settings();
     const articlePage = new ArticlePage();
     const savedPage = new SavedPage();
 
     beforeEach(async () => {
-        await onBoarding.skip();
+        await onBoardingPage.skipOnBoarding();
     });
 
     afterEach(async () => {
@@ -23,16 +23,12 @@ describe('Explore', () => {
 
     /**
      * Test case steps:
-     * Enter Appium in search container
+     * Enter Test automation in search container
      * Tap enter
      */
     it('can find article', async () => {
         const articleTitle = 'Test automation';
-        await explorePage.openSearch();
-        await explorePage.fillOpenedSearch(articleTitle);
-        await expect(explorePage.openedSearchContainer).toHaveText(articleTitle);
-        await driver.pressKeyCode(66);
-        await explorePage.elemSearchBtn();
+        await explorePage.searchFor(articleTitle);
         await expect(articlePage.title).toHaveText(articleTitle);
     });
 
@@ -44,11 +40,7 @@ describe('Explore', () => {
      */
     it('can add article to the saved', async () => {
         const articleTitle = 'Test automation';
-        await explorePage.openSearch();
-        await explorePage.fillOpenedSearch(articleTitle);
-        await expect(explorePage.openedSearchContainer).toHaveText(articleTitle);
-        await driver.pressKeyCode(66); // tap enter button
-        await explorePage.elemSearchBtn();
+        await explorePage.searchFor(articleTitle);
         await expect(articlePage.title).toHaveText(articleTitle);
         await navigationPage.save();
         await navigationPage.back();
@@ -83,7 +75,7 @@ describe('Explore', () => {
      * Switch off Match system theme
      * Switch to black theme
     */
-    it.only('can change app theme', async () => {
+    it('can change app theme', async () => {
         const defaultText = '100% (Default)';
         const changedText = '110%';
 

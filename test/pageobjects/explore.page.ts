@@ -1,26 +1,19 @@
 export class ExplorePage {
-    get searchContainer() {
+    get searchInput() {
         return $('//android.widget.TextView[@text="Search Wikipedia"]');
     }
 
-    get openedSearchContainer() {
+    get searchResultsContainer() {
         return $('//android.widget.AutoCompleteTextView[@resource-id="org.wikipedia:id/search_src_text"]');
     }
 
-    get elemSearch(){
-        return $$('//android.view.ViewGroup');
+    get searchResults() {
+        return $$('//android.view.ViewGroup')[1].$('//android.widget.TextView[@resource-id="org.wikipedia:id/page_list_item_title"]');
     }
 
-    public async openSearch() {
-        await this.searchContainer.click();
-        // await this.searchContainer.addValue(text);
-    }
-
-    public async fillOpenedSearch(text: string) {
-        await this.openedSearchContainer.addValue(text);
-    }
-
-    public async elemSearchBtn() {
-        await this.elemSearch[1].click();
+    public async searchFor(text: string) {
+        await this.searchInput.click();
+        await this.searchResultsContainer.addValue(text);
+        await this.searchResults.click();
     }
 }

@@ -1,7 +1,10 @@
-export class OnBoarding {
+export class OnBoardingPage {
     //skip on-boarding
-     async skip () {
-        const skip = await $('//android.widget.Button[@resource-id="org.wikipedia:id/fragment_onboarding_skip_button"]');
-        await skip.click();
+    get skipButton() {
+        return $('//android.widget.Button[@resource-id="org.wikipedia:id/fragment_onboarding_skip_button"]');
+    }
+
+    async skipOnBoarding () {
+        await this.skipButton.click();
     }
 }

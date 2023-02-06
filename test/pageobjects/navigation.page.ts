@@ -1,12 +1,16 @@
 export class NavigationPage {
+    get backButton() {
+        return $('//android.widget.ImageButton');
+    }
+
     async saved() {
         const savedButton = await $('//android.widget.FrameLayout[@content-desc="Saved"]');
         savedButton.click();
     }
 
     async back() {
-        const backButton = await $('//android.widget.ImageButton');
-        backButton.click();
+        // const backButton = await $('//android.widget.ImageButton');
+        await this.backButton.click();
     };
 
     // async explore() {
