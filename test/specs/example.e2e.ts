@@ -29,7 +29,7 @@ describe('Explore', async () => {
     it('can find article', async () => {
         const articleTitle = 'Test automation';
         await explorePage.searchFor(articleTitle);
-        await expect(articlePage.title).toHaveText(articleTitle);
+        await expect(articlePage.articleTitle).toHaveText(articleTitle);
     });
 
     /**
@@ -41,7 +41,7 @@ describe('Explore', async () => {
     it('can add article to the saved', async () => {
         const articleTitle = 'Test automation';
         await explorePage.searchFor(articleTitle);
-        await expect(articlePage.title).toHaveText(articleTitle);
+        await expect(articlePage.articleTitle).toHaveText(articleTitle);
         await navigationPage.addArtcileToSaved();
         await navigationPage.goBack();
         await navigationPage.goBack();
@@ -81,7 +81,7 @@ describe('Explore', async () => {
 
         await navigationPage.openMoreTab();
         await navigationPage.openSettings();
-        await settingsPage.appTheme();
+        await settingsPage.openAppTheme();
         await expect(settingsPage.textSizePercent).toHaveText(defaultText);
         await settingsPage.increaseTextSizeButton.click();
         await expect(settingsPage.textSizePercent).toHaveText(changedText);

@@ -1,5 +1,5 @@
 export class ArticlePage {
-    get title() {
+    get articleTitle() {
         return $('//android.view.View[1]/android.widget.TextView[1]');
     };
 

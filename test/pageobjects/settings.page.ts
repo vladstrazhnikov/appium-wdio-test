@@ -1,7 +1,10 @@
 export class SettingsPage {
-    async appTheme() {
-        const appThemeBtn = await $('//android.widget.LinearLayout[@index="5"]');
-        await appThemeBtn.click();    
+    get appThemeButton(){
+        return $('//android.widget.LinearLayout[@index="5"]');
+    }
+    
+    async openAppTheme() {
+        await this.appThemeButton.click();    
     }
 
     //app theme settings(more > settings > app theme)

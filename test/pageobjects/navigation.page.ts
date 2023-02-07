@@ -20,7 +20,7 @@ export class NavigationPage {
     }
 
     async openSavedArticales() {
-        this.savedButton.click();
+        await this.savedButton.click();
     }
 
     async goBack() {
