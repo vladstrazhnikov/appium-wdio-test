@@ -79,8 +79,8 @@ describe('Explore', async () => {
         const defaultText = '100% (Default)';
         const changedText = '110%';
 
-        await navigationPage.more();
-        await navigationPage.settings();
+        await navigationPage.openMoreTab();
+        await navigationPage.openSettings();
         await settingsPage.appTheme();
         await expect(settingsPage.textSizePercent).toHaveText(defaultText);
         await settingsPage.increaseTextSizeButton.click();
@@ -89,7 +89,6 @@ describe('Explore', async () => {
         await settingsPage.themeSwitcher.click();
         await expect(settingsPage.blackThemeButton).toBeEnabled();
         await settingsPage.blackThemeButton.click();
-        await driver.pause(3000);
     });
 })
 

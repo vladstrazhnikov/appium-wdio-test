@@ -11,6 +11,14 @@ export class NavigationPage {
         return $('//android.widget.TextView[@content-desc="Save"]');
     }
 
+    get moreButton() {
+        return $('//android.widget.FrameLayout[@resource-id="org.wikipedia:id/nav_more_container"]');
+    }
+
+    get settingsButton(){
+        return $('//android.widget.LinearLayout[@resource-id="org.wikipedia:id/main_drawer_settings_container"]');
+    }
+
     async openSavedArticales() {
         this.savedButton.click();
     }
@@ -23,13 +31,11 @@ export class NavigationPage {
         await this.saveArticleButton.click();
     };
 
-    async more() {
-        const moreBtn = await $('//android.widget.FrameLayout[@resource-id="org.wikipedia:id/nav_more_container"]')
-        await moreBtn.click();
+    async openMoreTab() {
+        await this.moreButton.click();
     };
 
-    async settings() {
-        const settingsBtn = await $('//android.widget.LinearLayout[@resource-id="org.wikipedia:id/main_drawer_settings_container"]');
-        await settingsBtn.click();
+    async openSettings() {
+        await this.settingsButton.click();
     };
 }
