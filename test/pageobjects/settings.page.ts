@@ -1,4 +1,4 @@
-export class Settings {
+export class SettingsPage {
     async appTheme() {
         const appThemeBtn = await $('//android.widget.LinearLayout[@index="5"]');
         await appThemeBtn.click();    

@@ -1,7 +1,7 @@
 import { ExplorePage } from '../pageobjects/explore.page.js';
 import { OnBoardingPage } from '../pageobjects/on-boarding.page.js';
 import { NavigationPage } from '../pageobjects/navigation.page.js';
-import { Settings } from '../pageobjects/settings.page.js';
+import { SettingsPage } from '../pageobjects/settings.page.js';
 import { ArticlePage } from '../pageobjects/article.page.js';
 import { SavedPage } from '../pageobjects/saved.page.js';
 
@@ -9,7 +9,7 @@ describe('Explore', async () => {
     const explorePage = new ExplorePage();
     const onBoardingPage = new OnBoardingPage();
     const navigationPage = new NavigationPage();
-    const settingsPage = new Settings();
+    const settingsPage = new SettingsPage();
     const articlePage = new ArticlePage();
     const savedPage = new SavedPage();
 
