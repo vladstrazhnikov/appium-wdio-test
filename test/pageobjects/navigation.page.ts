@@ -3,24 +3,24 @@ export class NavigationPage {
         return $('//android.widget.ImageButton');
     }
 
-    async saved() {
-        const savedButton = await $('//android.widget.FrameLayout[@content-desc="Saved"]');
-        savedButton.click();
+    get savedButton() {
+        return $('//android.widget.FrameLayout[@content-desc="Saved"]');
     }
 
-    async back() {
-        // const backButton = await $('//android.widget.ImageButton');
+    get saveArticleButton() {
+        return $('//android.widget.TextView[@content-desc="Save"]');
+    }
+
+    async openSavedArticales() {
+        this.savedButton.click();
+    }
+
+    async goBack() {
         await this.backButton.click();
     };
 
-    // async explore() {
-    //     const exploreBtn = await $('')
-    //     await exploreBtn.click();
-    // };
-
-    async save() {
-        const saveButton = await $('//android.widget.TextView[@content-desc="Save"]')
-        await saveButton.click();
+    async addArtcileToSaved() {
+        await this.saveArticleButton.click();
     };
 
     async more() {

@@ -42,10 +42,10 @@ describe('Explore', async () => {
         const articleTitle = 'Test automation';
         await explorePage.searchFor(articleTitle);
         await expect(articlePage.title).toHaveText(articleTitle);
-        await navigationPage.save();
-        await navigationPage.back();
-        await navigationPage.back();
-        await navigationPage.saved();
+        await navigationPage.addArtcileToSaved();
+        await navigationPage.goBack();
+        await navigationPage.goBack();
+        await navigationPage.openSavedArticales();
         await savedPage.openSavedArticles();
         await expect(savedPage.savedArticle).toHaveText(articleTitle);
     });
