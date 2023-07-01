@@ -1,9 +1,9 @@
-import { ExplorePage } from '../pageobjects/explore.page.js';
-import { OnBoardingPage } from '../pageobjects/on-boarding.page.js';
-import { NavigationPage } from '../pageobjects/navigation.page.js';
-import { SettingsPage } from '../pageobjects/settings.page.js';
-import { ArticlePage } from '../pageobjects/article.page.js';
-import { SavedPage } from '../pageobjects/saved.page.js';
+import { ExplorePage } from '../pageobjects/explore.page';
+import { OnBoardingPage } from '../pageobjects/on-boarding.page';
+import { NavigationPage } from '../pageobjects/navigation.page';
+import { SettingsPage } from '../pageobjects/settings.page';
+import { ArticlePage } from '../pageobjects/article.page';
+import { SavedPage } from '../pageobjects/saved.page';
 
 describe('Explore', async () => {
     const explorePage = new ExplorePage();
